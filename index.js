@@ -1,25 +1,31 @@
 function isPalindrome(word) {
-  // Write your algorithm here
+
+  if (word.length <= 1) {
+    return true;
+  }
+  
+
+  if (word[0] !== word[word.length - 1]) {
+    return false;
+  }
+  
+
+  return isPalindrome(word.slice(1, -1));
 }
 
-/* 
-  Add your pseudocode here
-*/
 
-/*
-  Add written explanation of your solution here
-*/
-
-// You can run `node index.js` to view these console logs
 if (require.main === module) {
-  // add your own custom tests in here
+  // Custom tests
   console.log("Expecting: true");
-  console.log("=>", isPalindrome("racecar"));
-
+  console.log("=>", isPalindrome("abba")); 
+  console.log("=>", isPalindrome("racecar")); 
+  console.log("=>", isPalindrome("a"));
+  
   console.log("");
 
   console.log("Expecting: false");
-  console.log("=>", isPalindrome("robot"));
+  console.log("=>", isPalindrome("robot")); // Expecting: false
+  console.log("=>", isPalindrome("ab")); // Expecting: false
 }
 
 module.exports = isPalindrome;
